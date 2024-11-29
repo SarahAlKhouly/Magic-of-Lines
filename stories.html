@@ -48,16 +48,19 @@
                 تبكي الأمهات ماذا قد يحدث في أبنائهم الآن، صراخات الأمهات تعلو الأماكن.
                 لتأتي <span class="highlight">بشري</span> وتنظر لهم وتقول: لن تنجوا أبداً من الهلاك...
                     </article>
-                 <!-- إضافة تعليقات ولايكات -->
-            <div class="likes-comments">
-                <button class="like-btn" onclick="toggleLike(this)">إعجاب</button>
+               <!-- إضافة قسم التعليقات -->
+            <div class="comments-likes">
+                <button class="like-btn">أعجبني</button>
                 <span class="like-count">0</span>
-                <div class="comments">
-                    <textarea placeholder="أضف تعليق..."></textarea>
-                    <button class="comment-btn" onclick="addComment(this)">أضف تعليق</button>
-                    <ul class="comment-list"></ul>
+                <h3>التعليقات:</h3>
+                <textarea id="comment-text" placeholder="أضف تعليقك..."></textarea><br>
+                <input type="text" id="comment-name" placeholder="اسمك"><br>
+                <button class="submit-comment" onclick="addComment('comment1')">أرسل</button>
+                
+                <div id="comment1-comments">
+                    <!-- التعليقات ستظهر هنا -->
                 </div>
-            </div>    
+            </div>
         <article>
             
     </section>
