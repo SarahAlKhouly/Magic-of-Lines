@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الروايات | حكايات وروايات</title>
     <link rel="stylesheet" href="style.css">
-     <!-- إضافة أيقونة للموقع -->
-     <link rel="icon" href="5922435416861043172.jpg" type="image/png">
+    <!-- إضافة أيقونة للموقع -->
+    <link rel="icon" href="5922435416861043172.jpg" type="image/png">
 </head>
 <body>
     <header>
@@ -47,26 +47,63 @@
                 حيث تبدأ أحداث جديدة، ينظر الناس إلى الجثمان برعب. 
                 تبكي الأمهات ماذا قد يحدث في أبنائهم الآن، صراخات الأمهات تعلو الأماكن.
                 لتأتي <span class="highlight">بشري</span> وتنظر لهم وتقول: لن تنجوا أبداً من الهلاك...
-                    </article>
-               <!-- إضافة قسم التعليقات -->
-            <div class="comments-likes">
-                <button class="like-btn">أعجبني</button>
-                <span class="like-count">0</span>
-                <h3>التعليقات:</h3>
-                <textarea id="comment-text" placeholder="أضف تعليقك..."></textarea><br>
-                <input type="text" id="comment-name" placeholder="اسمك"><br>
-                <button class="submit-comment" onclick="addComment('comment1')">أرسل</button>
-                
-                <div id="comment1-comments">
-                    <!-- التعليقات ستظهر هنا -->
-                </div>
-            </div>
-        <article>
+            </p>
+        </article>
+
+        <!-- إضافة قسم التعليقات -->
+        <div class="comments-likes">
+            <!-- أيقونة الإعجاب -->
+            <button class="like-btn" onclick="increaseLike()">👍</button>
+            <span class="like-count">0</span>
+            <h3>التعليقات:</h3>
+            <textarea id="comment-text2" placeholder="أضف تعليقك..."></textarea><br>
+            <input type="text" id="comment-name2" placeholder="اسمك"><br>
+            <button class="submit-comment" onclick="addComment('comment2')">أرسل</button>
             
+            <div id="comment2-comments">
+                <!-- التعليقات ستظهر هنا -->
+            </div>
+        </div>
     </section>
 
     <footer>
         <p>حقوق النشر © 2024 حكايات وروايات. جميع الحقوق محفوظة.</p>
     </footer>
+
+    <script>
+    // دالة لإضافة التعليقات
+    function addComment(articleId) {
+        var text = document.getElementById("comment-text" + (articleId === 'comment1' ? '' : '2')).value;
+        var name = document.getElementById("comment-name" + (articleId === 'comment1' ? '' : '2')).value;
+
+        if (text && name) {
+            var commentDiv = document.createElement("div");
+            commentDiv.classList.add("comment");
+
+            var commentText = document.createElement("p");
+            commentText.innerText = text;
+            commentDiv.appendChild(commentText);
+
+            var commentName = document.createElement("span");
+            commentName.innerText = "من: " + name;
+            commentDiv.appendChild(commentName);
+
+            document.getElementById(articleId + '-comments').appendChild(commentDiv);
+
+            // مسح الحقول بعد الإرسال
+            document.getElementById("comment-text" + (articleId === 'comment1' ? '' : '2')).value = '';
+            document.getElementById("comment-name" + (articleId === 'comment1' ? '' : '2')).value = '';
+        } else {
+            alert("من فضلك أدخل التعليق واسمك");
+        }
+    }
+
+    // دالة لزيادة العد عند الضغط على زر الإعجاب
+    let likeCount = 0;
+    function increaseLike() {
+        likeCount++;
+        document.querySelector(".like-count").textContent = likeCount;
+    }
+    </script>
 </body>
 </html>
