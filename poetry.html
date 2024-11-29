@@ -87,15 +87,19 @@
             }
         }
 
-        // وظيفة لإضافة تعليق
-        function addComment(button) {
-            var commentText = button.previousElementSibling.value;
-            if (commentText.trim()) {
-                var commentList = button.nextElementSibling;
-                var newComment = document.createElement('li');
-                newComment.textContent = commentText;
-                commentList.appendChild(newComment);
-                button.previousElementSibling.value = '';  // مسح التعليق بعد إضافته
+           <!-- إضافة قسم التعليقات -->
+            <div class="comments-likes">
+                <button class="like-btn">أعجبني</button>
+                <span class="like-count">0</span>
+                <h3>التعليقات:</h3>
+                <textarea id="comment-text" placeholder="أضف تعليقك..."></textarea><br>
+                <input type="text" id="comment-name" placeholder="اسمك"><br>
+                <button class="submit-comment" onclick="addComment('comment1')">أرسل</button>
+                
+                <div id="comment1-comments">
+                    <!-- التعليقات ستظهر هنا -->
+                </div>
+            </div>
             }
         }
     </script>
