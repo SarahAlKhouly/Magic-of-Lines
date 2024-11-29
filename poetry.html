@@ -75,18 +75,6 @@
     </footer>
 
     <script>
-        // وظيفة لإضافة اللايك
-        function toggleLike(button) {
-            var likeCount = button.nextElementSibling;
-            if (button.classList.contains('liked')) {
-                button.classList.remove('liked');
-                likeCount.innerText = parseInt(likeCount.innerText) - 1;
-            } else {
-                button.classList.add('liked');
-                likeCount.innerText = parseInt(likeCount.innerText) + 1;
-            }
-        }
-
            <!-- إضافة قسم التعليقات -->
             <div class="comments-likes">
                 <button class="like-btn">أعجبني</button>
@@ -100,8 +88,7 @@
                     <!-- التعليقات ستظهر هنا -->
                 </div>
             </div>
-            }
-        }
+           
     </script>
 </body>
 </html>
