@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الشعر | حكايات وروايات</title>
     <link rel="stylesheet" href="style.css">
-     <!-- إضافة أيقونة للموقع -->
-     <link rel="icon" href="5922435416861043172.jpg" type="image/png">
+    <!-- إضافة أيقونة للموقع -->
+    <link rel="icon" href="5922435416861043172.jpg" type="image/png">
 </head>
 <body>
     <header>
@@ -56,22 +56,21 @@
             تتجدد فيها المشاعر،<br>
             وتظل خالدة في قلوبنا.<br><br>
             <strong>#ريما_الخولي</strong></p>
-        </article>
 
-        <!-- إضافة قسم التعليقات -->
-        <div class="comments-likes">
-            <!-- أيقونة الإعجاب -->
-            <button class="like-btn" onclick="increaseLike()">👍</button>
-            <span class="like-count">0</span>
-            <h3>التعليقات:</h3>
-            <textarea id="comment-text2" placeholder="أضف تعليقك..."></textarea><br>
-            <input type="text" id="comment-name2" placeholder="اسمك"><br>
-            <button class="submit-comment" onclick="addComment('comment2')">أرسل</button>
-            
-            <div id="comment2-comments">
-                <!-- التعليقات ستظهر هنا -->
+            <!-- إضافة قسم التعليقات والإعجابات -->
+            <div class="comments-likes">
+                <button class="like-btn" onclick="increaseLike('like-count2')">👍</button>
+                <span id="like-count2" class="like-count">0</span>
+                <h3>التعليقات:</h3>
+                <textarea id="comment-text2" placeholder="أضف تعليقك..."></textarea><br>
+                <input type="text" id="comment-name2" placeholder="اسمك"><br>
+                <button class="submit-comment" onclick="addComment('comment2')">أرسل</button>
+                
+                <div id="comment2-comments">
+                    <!-- التعليقات ستظهر هنا -->
+                </div>
             </div>
-        </div>
+        </article>
     </section>
 
     <footer>
@@ -81,8 +80,8 @@
     <script>
     // دالة لإضافة التعليقات
     function addComment(articleId) {
-        var text = document.getElementById("comment-text" + (articleId === 'comment1' ? '' : '2')).value;
-        var name = document.getElementById("comment-name" + (articleId === 'comment1' ? '' : '2')).value;
+        var text = document.getElementById("comment-text" + (articleId === 'comment1' ? '1' : '2')).value;
+        var name = document.getElementById("comment-name" + (articleId === 'comment1' ? '1' : '2')).value;
 
         if (text && name) {
             var commentDiv = document.createElement("div");
@@ -99,19 +98,20 @@
             document.getElementById(articleId + '-comments').appendChild(commentDiv);
 
             // مسح الحقول بعد الإرسال
-            document.getElementById("comment-text" + (articleId === 'comment1' ? '' : '2')).value = '';
-            document.getElementById("comment-name" + (articleId === 'comment1' ? '' : '2')).value = '';
+            document.getElementById("comment-text" + (articleId === 'comment1' ? '1' : '2')).value = '';
+            document.getElementById("comment-name" + (articleId === 'comment1' ? '1' : '2')).value = '';
         } else {
             alert("من فضلك أدخل التعليق واسمك");
         }
     }
 
     // دالة لزيادة العد عند الضغط على زر الإعجاب
-    let likeCount = 0;
-    function increaseLike() {
+    function increaseLike(likeId) {
+        var likeCount = document.getElementById(likeId).textContent;
         likeCount++;
-        document.querySelector(".like-count").textContent = likeCount;
+        document.getElementById(likeId).textContent = likeCount;
     }
     </script>
 </body>
 </html>
+
