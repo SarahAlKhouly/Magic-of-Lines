@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشعر | حكايات وروايات</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="5922435416861043172.jpg" type="image/png">
+</head>
+<body>
+    <header>
+        <h1>حكايات وروايات</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="poetry.html">الشعر</a></li>
+                <li><a href="stories.html">الروايات</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="poetry">
+        <h2>أشعاري</h2>
+        
+        <article>
+            <h2> "رماد الحب"</h2>
+            <p>لم يعد الضهر كله يكفيني إلي النسيان،<br>
+            أشعر بفراغ القلب في الزمان المتجمد،<br>
+            جفت المشاعر كأوراق شجرة عارية،<br>
+            حيث الحب كان يمسح الآلام برقة،<br>
+            ذكريات الماضي تتراقص في العتمة،<br>
+            أبحث عن أمل جديد في غدٍ مشرق،<br>
+            قد أستعيد ما فقدته وسط الضياع،<br>
+            تغني الأرواح بما مضى في زهوتها،<br>
+            وفي قلبي المجوف تنمو أحلام الحياة،<br>
+            لكن كيف يمكن أن ينمو الحب من رماد؟<br>
+            <strong> ريم الخولي-</strong></p>
+        </article>
+
+        <article>
+            <h2> "سحر العين"</h2>
+            <p>أغوص في عينيك، حيث يسحرني الليل،<br>
+            في ظلماتها أكتشف أسرار الجمال.<br>
+            أعلم أنك لا تعلم بوجودي،<br>
+            لكنني أُدعي أن اللقاء سيكون مميزًا،<br>
+            حين تلتقي عيناك بعيني، ويغمرنا الحب.<br><br>
+
+            أنت النور الذي يضيء زوايا قلبي،<br>
+            يمنحني الأمل ويشعل في روحي الشغف.<br>
+            دعني أعيش في سحرك،<br>
+            فكل لحظة معك تحمل طعماً خاصاً.<br><br>
+
+            لأكون لك، وأنت لي،<br>
+            في قصة حب تُروى عبر الأزمان،<br>
+            تتجدد فيها المشاعر،<br>
+            وتظل خالدة في قلوبنا.<br><br>
+            <strong>#ريما_الخولي</strong></p>
+
+            <!-- إضافة تعليقات ولايكات -->
+            <div class="likes-comments">
+                <button class="like-btn" onclick="toggleLike(this)">إعجاب</button>
+                <span class="like-count">0</span>
+                <div class="comments">
+                    <textarea placeholder="أضف تعليق..."></textarea>
+                    <button class="comment-btn" onclick="addComment(this)">أضف تعليق</button>
+                    <ul class="comment-list"></ul>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <footer>
+        <p>حقوق النشر © 2024 حكايات وروايات. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        // وظيفة لإضافة اللايك
+        function toggleLike(button) {
+            var likeCount = button.nextElementSibling;
+            if (button.classList.contains('liked')) {
+                button.classList.remove('liked');
+                likeCount.innerText = parseInt(likeCount.innerText) - 1;
+            } else {
+                button.classList.add('liked');
+                likeCount.innerText = parseInt(likeCount.innerText) + 1;
+            }
+        }
+
+        // وظيفة لإضافة تعليق
+        function addComment(button) {
+            var commentText = button.previousElementSibling.value;
+            if (commentText.trim()) {
+                var commentList = button.nextElementSibling;
+                var newComment = document.createElement('li');
+                newComment.textContent = commentText;
+                commentList.appendChild(newComment);
+                button.previousElementSibling.value = '';  // مسح التعليق بعد إضافته
+            }
+        }
+    </script>
+</body>
+</html>
